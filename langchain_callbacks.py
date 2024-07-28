@@ -57,3 +57,4 @@ prompt = PromptTemplate.from_template("What is the capital of {country}?")
 
 chain = LLMChain(llm=llm, prompt=prompt)
 chain.run(country='South Africa', callbacks=[handler])
+
