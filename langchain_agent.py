@@ -37,7 +37,8 @@ prompt = ZeroShotAgent.create_prompt(
     input_variables=["input", "chat_history", "agent_scratchpad"], )
 memory = ConversationBufferMemory(memory_key="chat_history")
 
-llm_chain = LLMChain(llm=OpenAI(openai_api_key=api_key, model="gpt-3.5-turbo-instruct", max_tokens=250, temperature=0),prompt=prompt)
+llm_chain = LLMChain(llm=OpenAI(openai_api_key=api_key, model="gpt-3.5-turbo-instruct", max_tokens=250, temperature=0),
+                     prompt=prompt)
 agent = ZeroShotAgent(llm_chain=llm_chain, tools=tools, verbose=True)
 
 agent_chain = AgentExecutor.from_agent_and_tools(
